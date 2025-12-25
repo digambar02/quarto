@@ -1,1 +1,1 @@
-Sitemap: https://digambar.github.io/quarto/sitemap.xml
+Sitemap: https://digambar02.github.io/quarto/sitemap.xml

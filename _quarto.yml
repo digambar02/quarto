@@ -1,12 +1,9 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
 
 website:
   title: "Resume"
-  site-url: https://digambar02.github.io/quarto
-  site-path: /quarto
-  
   navbar:
     left:
       - href: index.qmd

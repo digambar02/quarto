@@ -4,7 +4,8 @@ project:
 
 website:
   title: "Resume"
-  site-url: https://digambar02.github.io/quarto/
+  site-url: https://digambar02.github.io/quarto
+  site-path: /quarto
   
   navbar:
     left:

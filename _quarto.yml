@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Resume"
+  site-url: https://digambar.github.io/quarto/
   navbar:
     left:
       - href: index.qmd

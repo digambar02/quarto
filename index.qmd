@@ -11,7 +11,9 @@ toc: false
 
 ## Professional Summary
 
-Quantitative Data Scientist with 2.5 years of experience in AML/FCC analytics, specializing in the end-to-end development and validation of rule-based and supervised/unsupervised machine-learning models for customer risk rating, customer segmentation for TMS, alert risk scoring (name screening and TMS), and anomaly/fraud detection. Experienced across multiple banking environments, including 4 months of onsite client engagement in the UAE, with strong exposure to transaction-based behavioural feature engineering, independent research, and direct client interaction.
+Quantitative Data Scientist with 2.5 years of experience in AML/FCC analytics, specializing in the end-to-end development and validation of rule-based and supervised/unsupervised machine-learning models for customer risk rating, customer segmentation for TMS, alert risk scoring (name screening and TMS), and anomaly/fraud detection.
+
+Experienced across multiple banking environments, including 4 months of onsite client engagement in the UAE, with strong exposure to transaction-based behavioural feature engineering, independent research, and direct client interaction.
 
 Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB TRIM regulatory frameworks, with a proven ability to translate analytical outputs into regulator-ready documentation and business-interpretable insights.
 
@@ -65,7 +67,7 @@ Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB T
 
 -   Evaluated model development and selection metrics, **including precision, recall, KS, IV, and WoE. Performed stability and drift analysis using PSI and CSI.**
 
--   Reviewed production implementation and code, ensuring reproducibility and control effectiveness.
+-   Reviewed **production implementation and code**, ensuring reproducibility and control effectiveness.
 
 -   Evaluated model interpretability using **feature importance, SHAP, LIME, PDPs, and counterfactual analysis**, and documented validation findings and monitoring recommendations.
 

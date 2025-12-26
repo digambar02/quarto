@@ -169,14 +169,15 @@ window.Quarto = {
 <p>In classical linear regression, (Y) can take <strong>any value on the real line</strong>. There are no natural boundaries. Predicting (-5), (3.2), or (10^6) does not violate any rules.</p>
 <p>The linear predictor <span class="math inline">\(X\beta\)</span> also lives on the real line, so the model is internally consistent.</p>
 <p>Linearity works not because it is convenient, but because the mathematics of the response allows it.</p>
-<hr>
 </section>
 <section id="a-fundamental-shift-binary-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="a-fundamental-shift-binary-outcomes">A Fundamental Shift: Binary Outcomes</h2>
 <p>Now imagine a different kind of problem. Instead of predicting a continuous quantity, we are predicting an event.</p>
-<p>Did a transaction turn suspicious?<br>
-Did a customer default?<br>
-Did a user click?</p>
+<ul>
+<li><p>Did a transaction turn suspicious?</p></li>
+<li><p>Did a customer default?</p></li>
+<li><p>Did a user click?</p></li>
+</ul>
 <p>In all these cases, the response variable is binary:</p>
 <p><span class="math display">\[
 Y \in \{0, 1\}
@@ -185,15 +186,14 @@ Y \in \{0, 1\}
 <p><span class="math display">\[
 Y \sim \text{Bernoulli}(p)
 \]</span></p>
-<p>Here, the randomness in the data is fully described by a single quantity: the probability <span class="math inline">\((p = P(Y = 1 \mid X))\)</span>.</p>
+<p>Here, the randomness in the data is fully described by a single quantity: the probability <span class="math inline">\(p = P(Y = 1 \mid X)\)</span>.</p>
 <p>For a Bernoulli variable, the conditional expectation simplifies beautifully:</p>
 <p><span class="math display">\[
 \mathbb{E}(Y \mid X)
 = 1 \cdot P(Y=1 \mid X) + 0 \cdot P(Y=0 \mid X)
 = p
 \]</span></p>
-<p>At this point, the expectation is no longer an abstract mean—it <em>is the probability itself</em>.</p>
-<hr>
+<p>At this point, the expectation is no longer an abstract mean, it <em>is the probability itself</em>.</p>
 </section>
 <section id="why-linear-regression-fails-here" class="level2">
 <h2 class="anchored" data-anchor-id="why-linear-regression-fails-here">Why Linear Regression Fails Here</h2>
@@ -202,14 +202,11 @@ Y \sim \text{Bernoulli}(p)
 p = X\beta
 \]</span></p>
 <p>This looks innocent, but it immediately breaks something fundamental.</p>
-<p>The probability <span class="math inline">\(p\)</span> <strong>must</strong> lie between 0 and 1.<br>
-</p>
+<p>The probability <span class="math inline">\(p\)</span> <strong>must</strong> lie between 0 and 1.</p>
 <p>The linear predictor <span class="math inline">\(X\beta\)</span> has no such restriction, it can be negative, arbitrarily large, or anything in between.</p>
 <p>This mismatch is not a technical nuisance; it is a conceptual failure.</p>
 <p>A model that predicts probabilities outside <span class="math inline">\([0,1]\)</span> is not merely inaccurate, it is invalid.</p>
-<p>The issue is not with linearity itself.</p>
-<p>The issue is <em>where</em> we are trying to apply linearity.</p>
-<hr>
+<p>The issue is not with linearity itself. The issue is <em>where</em> we are trying to apply linearity.</p>
 </section>
 <section id="rethinking-the-target-from-probability-to-odds" class="level2">
 <h2 class="anchored" data-anchor-id="rethinking-the-target-from-probability-to-odds">Rethinking the Target: From Probability to Odds</h2>
@@ -226,7 +223,6 @@ p = X\beta
 \]</span></p>
 <p>This is progress. We have removed the upper bound. But odds are still restricted—they cannot be negative.</p>
 <p>So linearity still does not quite fit.</p>
-<hr>
 </section>
 <section id="the-key-insight-log-odds-restore-linearity" class="level2">
 <h2 class="anchored" data-anchor-id="the-key-insight-log-odds-restore-linearity">The Key Insight: Log-Odds Restore Linearity</h2>
@@ -239,23 +235,20 @@ p = X\beta
 <p>This allows us to write:</p>
 <p><span class="math display">\[
 \log\left(\frac{p}{1 - p}\right) = X\beta
-\]</span></p>
-<p>This single equation defines logistic regression.</p>
+\]</span>This single equation defines logistic regression.</p>
 <p>Notice what has happened conceptually. We did not abandon the linear model.</p>
 <p>We preserved linearity by applying it to a transformed version of the response.</p>
-<p>Linearity survives—but on the log-odds scale.</p>
-<hr>
+<p>Linearity survives, but on the log-odds scale.</p>
 </section>
 <section id="interpretation-what-the-coefficients-really-mean" class="level2">
 <h2 class="anchored" data-anchor-id="interpretation-what-the-coefficients-really-mean">Interpretation: What the Coefficients Really Mean</h2>
 <p>This formulation gives logistic regression its distinctive interpretation.</p>
-<p>A one-unit increase in a predictor <span class="math inline">\(X_j\)</span> increases the <strong>log-odds</strong> by (_j). Exponentiating both sides reveals the effect on odds:</p>
+<p>A one-unit increase in a predictor <span class="math inline">\(X_j\)</span> increases the <strong>log-odds</strong> by <span class="math inline">\(\beta_j\)</span>. Exponentiating both sides reveals the effect on odds:</p>
 <p><span class="math display">\[
 \text{odds} \;\rightarrow\; \text{odds} \times e^{\beta_j}
 \]</span></p>
-<p>So coefficients no longer represent additive changes in the response. They represent <strong>multiplicative changes in odds</strong>.</p>
+<p>So coefficients no longer represent additive changes in the response. They represent multiplicative changes in odds.</p>
 <p>This is why logistic regression coefficients are often reported as odds ratios rather than raw estimates.</p>
-<hr>
 </section>
 <section id="completing-the-journey-from-log-odds-back-to-probability" class="level2">
 <h2 class="anchored" data-anchor-id="completing-the-journey-from-log-odds-back-to-probability">Completing the Journey: From Log-Odds Back to Probability</h2>

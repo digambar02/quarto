@@ -3,20 +3,24 @@ project:
   output-dir: docs
 
 website:
-  title: "Resume"
+
+  search: false
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Resume
+      - href: articles.qmd
+        text: Articles
+      - href: about.qmd
+        text: About
 
 format:
   html:
     theme:
       - cosmo
-      - brand
     css: styles.css
-    toc: true
+    toc: false
 
 editor: visual
+
 

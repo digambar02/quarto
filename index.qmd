@@ -1,11 +1,124 @@
 ---
-title: "Resume"
+title: "Digambar Dagade"
+subtitle: "AML / FCC Quantitative Consultant"
+toc: false
 ---
 
-This is a Quarto website.
+📍 **Pune, Maharashtra, India**\
+📞 +91-8329290277 \| ✉️ dagadedigambar\@gmail.com \| LinkedIn
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+------------------------------------------------------------------------
 
-```{r}
-1 + 1
-```
+## Professional Summary
+
+Quantitative Data Scientist with 2.5 years of experience in AML/FCC analytics, specializing in the end-to-end development and validation of rule-based and supervised/unsupervised machine-learning models for customer risk rating, customer segmentation for TMS, alert risk scoring (name screening and TMS), and anomaly/fraud detection. Experienced across multiple banking environments, including 4 months of onsite client engagement in the UAE, with strong exposure to transaction-based behavioural feature engineering, independent research, and direct client interaction.
+
+Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB TRIM regulatory frameworks, with a proven ability to translate analytical outputs into regulator-ready documentation and business-interpretable insights.
+
+------------------------------------------------------------------------
+
+## Experience
+
+### Solytics Partners — Quantitative Consultant
+
+*2023 – Present*
+
+**Customer Risk Rating (CRR) System**
+
+-   Designed and developed end-to-end customer risk rating models for 50,000+ customers using hybrid rule-based and supervised machine learning frameworks.
+
+-   Engineered demographic and **transaction-based behavioural features** and performed **variable selection** **Correlation Analysis, VIF, IV, WOE, Chi-square Test, ANOVA test**, using pandas and scikit-learn.
+
+-   Built and tuned models including **Logistic Regression, Random Forest, XGBoost, and CatBoost**, with hyperparameter optimization using **GridSearch and Optuna**.
+
+-   Selected final models based on **precision, recall, PR-AUC, calibration curves, and stability metrics.**
+
+-   Implemented **SHAP-based explainability** to interpret predictions and generate regulatory-compliant rationale for customer risk scores.
+
+**Customer Segmentation**
+
+-   Developed unsupervised segmentation models using K-Means and Gaussian Mixture Models (GMM) to identify behaviour-driven customer segments for TMS.
+
+-   Determined optimal number of clusters using Elbow Method, Silhouette Score, Davies–Bouldin Index, and Calinski–Harabasz Index, AIC/BIC reduction.
+
+-   Combined statistical validation and business interpretability to finalize actionable and stable segments.
+
+-    Built a production-ready Python segmentation pipeline for 35,000+ customers and 4.5M+ transactions, including automated data validation, preprocessing, clustering, prediction, database updates, and logging.
+
+-   Developed interactive monitoring dashboards using Streamlit and Plotly to track segment behavior, migration, and drift.
+
+**Alert Prioritization Risk Scoring Model (TMS)**
+
+-   Designed alert prioritization and risk-scoring models for transaction monitoring alerts to improve investigation efficiency.
+
+-   Engineered features combining customer risk attributes and transaction-level risk indicators.
+
+-    Optimized model performance using GridSearch and Optuna to balance recall–precision trade-offs.
+
+-    Integrated SHAP-based explanations to provide transparent, alert-level rationale for compliance analysts.
+
+**Model Validation & Governance (SR 11-7 Aligned)**
+
+-   Performed independent validation of customer risk rating, alert prioritization, and segmentation models in alignment with SR 11-7 model risk management guidelines.
+
+-   Assessed conceptual soundness, including model design, feature relevance, assumptions, and weight justification. Conducted data and input validation, covering source assessment, completeness checks, and missing value treatment.
+
+-   Evaluated model development and selection metrics, **including precision, recall, KS, IV, and WoE. Performed stability and drift analysis using PSI and CSI.**
+
+-   Reviewed production implementation and code, ensuring reproducibility and control effectiveness.
+
+-   Evaluated model interpretability using **feature importance, SHAP, LIME, PDPs, and counterfactual analysis**, and documented validation findings and monitoring recommendations.
+
+------------------------------------------------------------------------
+
+## R&D Projects
+
+-   **Adverse Media Screening**\
+    Designed LLM prompts for adverse media screening, reducing false positives by approximately **30%** through contextual understanding
+
+-   **Anomaly Detection Dashboard**\
+    Built an AML anomaly detection framework using **Isolation Forest** and **One-Class SVM**, supported by behavioural feature engineering and **LLM-generated investigative narratives**
+
+-   **Graph Network-Based Fraud Detection**\
+    Developed graph-based AML models using network metrics and community detection to identify money laundering networks, supported by LLM-based explanations
+
+-   **RAG-Powered CBUAE Guidelines Chatbot**\
+    Built a compliance chatbot using **Retrieval-Augmented Generation (RAG)**, vector embeddings, and Guardrails AI
+
+-   **LLM-Based Investigation Application**\
+    Developed an investigation assistant using **Gemini LLM function-calling** to dynamically extract customer, account, and transaction details
+
+------------------------------------------------------------------------
+
+## Technical Skills
+
+### AML / FCC / Fraud
+
+Customer Segmentation, Customer Risk Rating, Alert Prioritization (TMS & Name Screening), Transaction Behavioural Analytics, Suspicious Activity Detection, KYC/AML Compliance, Model Risk Management, Threshold Tuning
+
+### Machine Learning for AML/FCC
+
+-   **Classification**: Logistic Regression, Random Forest, XGBoost, CatBoost
+-   **Anomaly Detection**: Isolation Forest, One-Class SVM
+-   **Clustering**: K-Means, GMM, DBSCAN
+-   Graph Analytics, Feature Engineering, SHAP/LIME Explainability, ROC-AUC, PR-AUC
+
+### Programming & Tools
+
+Python, R, SQL, Pandas, scikit-learn, XGBoost, CatBoost, MLflow, Streamlit, Power BI, AWS (SageMaker, Bedrock), Plotly, FastAPI
+
+### Generative AI
+
+RAG Architecture, Vector Embeddings, Prompt Engineering, Agentic AI
+
+------------------------------------------------------------------------
+
+## Education
+
+### M.Sc. in Statistics
+
+**Shivaji University, Kolhapur** (2021 – 2023)\
+**CGPA:** 9.5 / 10
+
+**Key Coursework:**\
+Linear Algebra, Statistical Inference, Regression Analysis, Optimization Research, Data Mining, Time Series Analysis, Design of Experiments, Generalized Linear Models, Multivariate Analysis

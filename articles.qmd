@@ -1,0 +1,13 @@
+---
+title: "Articles"
+---
+
+Below are selected articles where I write about **statistics, machine learning, AML/FCC analytics**, and the **geometry behind models**.
+
+------------------------------------------------------------------------
+
+## 📘 Featured Posts
+
+### [The Journey from Linear Regression to Logistic Regression](posts/linear-regression-geometry/)
+
+*Understanding regression as a projection problem in linear algebra.*

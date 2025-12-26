@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Digambar Dagade">
+<meta name="dcterms.date" content="2025-12-26">
 
-<title>Digambar Dagade</title>
+<title>From Linear Regression to Logistic Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,20 +25,20 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -53,8 +55,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -69,15 +100,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./articles.html"> 
+    <a class="nav-link" href="../../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -97,15 +128,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Digambar Dagade</h1>
-<p class="subtitle lead">AML / FCC Quantitative Consultant</p>
+<h1 class="title">From Linear Regression to Logistic Regression</h1>
+<p class="subtitle lead">How probability constraints reshape linearity</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Digambar Dagade </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 26, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -115,106 +158,118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>📍 <strong>Pune, Maharashtra, India</strong><br>
-📞 +91-8329290277 | ✉️ dagadedigambar@gmail.com | LinkedIn</p>
-<hr>
-<section id="professional-summary" class="level2">
-<h2 class="anchored" data-anchor-id="professional-summary">Professional Summary</h2>
-<p>Quantitative Data Scientist with 2.5 years of experience in AML/FCC analytics, specializing in the end-to-end development and validation of rule-based and supervised/unsupervised machine-learning models for customer risk rating, customer segmentation for TMS, alert risk scoring (name screening and TMS), and anomaly/fraud detection. Experienced across multiple banking environments, including 4 months of onsite client engagement in the UAE, with strong exposure to transaction-based behavioural feature engineering, independent research, and direct client interaction.</p>
-<p>Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB TRIM regulatory frameworks, with a proven ability to translate analytical outputs into regulator-ready documentation and business-interpretable insights.</p>
-<hr>
-</section>
-<section id="experience" class="level2">
-<h2 class="anchored" data-anchor-id="experience">Experience</h2>
-<section id="solytics-partners-quantitative-consultant" class="level3">
-<h3 class="anchored" data-anchor-id="solytics-partners-quantitative-consultant">Solytics Partners — Quantitative Consultant</h3>
-<p><em>2023 – Present</em></p>
-<p><strong>Customer Risk Rating (CRR) System</strong></p>
-<ul>
-<li><p>Designed and developed end-to-end customer risk rating models for 50,000+ customers using hybrid rule-based and supervised machine learning frameworks.</p></li>
-<li><p>Engineered demographic and <strong>transaction-based behavioural features</strong> and performed <strong>variable selection</strong> <strong>Correlation Analysis, VIF, IV, WOE, Chi-square Test, ANOVA test</strong>, using pandas and scikit-learn.</p></li>
-<li><p>Built and tuned models including <strong>Logistic Regression, Random Forest, XGBoost, and CatBoost</strong>, with hyperparameter optimization using <strong>GridSearch and Optuna</strong>.</p></li>
-<li><p>Selected final models based on <strong>precision, recall, PR-AUC, calibration curves, and stability metrics.</strong></p></li>
-<li><p>Implemented <strong>SHAP-based explainability</strong> to interpret predictions and generate regulatory-compliant rationale for customer risk scores.</p></li>
-</ul>
-<p><strong>Customer Segmentation</strong></p>
-<ul>
-<li><p>Developed unsupervised segmentation models using K-Means and Gaussian Mixture Models (GMM) to identify behaviour-driven customer segments for TMS.</p></li>
-<li><p>Determined optimal number of clusters using Elbow Method, Silhouette Score, Davies–Bouldin Index, and Calinski–Harabasz Index, AIC/BIC reduction.</p></li>
-<li><p>Combined statistical validation and business interpretability to finalize actionable and stable segments.</p></li>
-<li><p>Built a production-ready Python segmentation pipeline for 35,000+ customers and 4.5M+ transactions, including automated data validation, preprocessing, clustering, prediction, database updates, and logging.</p></li>
-<li><p>Developed interactive monitoring dashboards using Streamlit and Plotly to track segment behavior, migration, and drift.</p></li>
-</ul>
-<p><strong>Alert Prioritization Risk Scoring Model (TMS)</strong></p>
-<ul>
-<li><p>Designed alert prioritization and risk-scoring models for transaction monitoring alerts to improve investigation efficiency.</p></li>
-<li><p>Engineered features combining customer risk attributes and transaction-level risk indicators.</p></li>
-<li><p>Optimized model performance using GridSearch and Optuna to balance recall–precision trade-offs.</p></li>
-<li><p>Integrated SHAP-based explanations to provide transparent, alert-level rationale for compliance analysts.</p></li>
-</ul>
-<p><strong>Model Validation &amp; Governance (SR 11-7 Aligned)</strong></p>
-<ul>
-<li><p>Performed independent validation of customer risk rating, alert prioritization, and segmentation models in alignment with SR 11-7 model risk management guidelines.</p></li>
-<li><p>Assessed conceptual soundness, including model design, feature relevance, assumptions, and weight justification. Conducted data and input validation, covering source assessment, completeness checks, and missing value treatment.</p></li>
-<li><p>Evaluated model development and selection metrics, <strong>including precision, recall, KS, IV, and WoE. Performed stability and drift analysis using PSI and CSI.</strong></p></li>
-<li><p>Reviewed production implementation and code, ensuring reproducibility and control effectiveness.</p></li>
-<li><p>Evaluated model interpretability using <strong>feature importance, SHAP, LIME, PDPs, and counterfactual analysis</strong>, and documented validation findings and monitoring recommendations.</p></li>
-</ul>
+<p><img src="cover.png" class="img-fluid"></p>
+<section id="where-everything-starts-linearity" class="level2">
+<h2 class="anchored" data-anchor-id="where-everything-starts-linearity">Where Everything Starts: Linearity</h2>
+<p>Linear regression begins with a deceptively simple assumption about the data-generating process:</p>
+<p><span class="math display">\[
+\mathbb{E}(Y \mid X) = X\beta
+\]</span></p>
+<p>This assumption is powerful because it aligns perfectly with the nature of the response variable.</p>
+<p>In classical linear regression, (Y) can take <strong>any value on the real line</strong>. There are no natural boundaries. Predicting (-5), (3.2), or (10^6) does not violate any rules.</p>
+<p>The linear predictor <span class="math inline">\(X\beta\)</span> also lives on the real line, so the model is internally consistent.</p>
+<p>Linearity works not because it is convenient, but because the mathematics of the response allows it.</p>
 <hr>
 </section>
-</section>
-<section id="rd-projects" class="level2">
-<h2 class="anchored" data-anchor-id="rd-projects">R&amp;D Projects</h2>
-<ul>
-<li><p><strong>Adverse Media Screening</strong><br>
-Designed LLM prompts for adverse media screening, reducing false positives by approximately <strong>30%</strong> through contextual understanding</p></li>
-<li><p><strong>Anomaly Detection Dashboard</strong><br>
-Built an AML anomaly detection framework using <strong>Isolation Forest</strong> and <strong>One-Class SVM</strong>, supported by behavioural feature engineering and <strong>LLM-generated investigative narratives</strong></p></li>
-<li><p><strong>Graph Network-Based Fraud Detection</strong><br>
-Developed graph-based AML models using network metrics and community detection to identify money laundering networks, supported by LLM-based explanations</p></li>
-<li><p><strong>RAG-Powered CBUAE Guidelines Chatbot</strong><br>
-Built a compliance chatbot using <strong>Retrieval-Augmented Generation (RAG)</strong>, vector embeddings, and Guardrails AI</p></li>
-<li><p><strong>LLM-Based Investigation Application</strong><br>
-Developed an investigation assistant using <strong>Gemini LLM function-calling</strong> to dynamically extract customer, account, and transaction details</p></li>
-</ul>
+<section id="a-fundamental-shift-binary-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="a-fundamental-shift-binary-outcomes">A Fundamental Shift: Binary Outcomes</h2>
+<p>Now imagine a different kind of problem. Instead of predicting a continuous quantity, we are predicting an event.</p>
+<p>Did a transaction turn suspicious?<br>
+Did a customer default?<br>
+Did a user click?</p>
+<p>In all these cases, the response variable is binary:</p>
+<p><span class="math display">\[
+Y \in \{0, 1\}
+\]</span></p>
+<p>A natural probabilistic assumption is:</p>
+<p><span class="math display">\[
+Y \sim \text{Bernoulli}(p)
+\]</span></p>
+<p>Here, the randomness in the data is fully described by a single quantity: the probability <span class="math inline">\((p = P(Y = 1 \mid X))\)</span>.</p>
+<p>For a Bernoulli variable, the conditional expectation simplifies beautifully:</p>
+<p><span class="math display">\[
+\mathbb{E}(Y \mid X)
+= 1 \cdot P(Y=1 \mid X) + 0 \cdot P(Y=0 \mid X)
+= p
+\]</span></p>
+<p>At this point, the expectation is no longer an abstract mean—it <em>is the probability itself</em>.</p>
 <hr>
 </section>
-<section id="technical-skills" class="level2">
-<h2 class="anchored" data-anchor-id="technical-skills">Technical Skills</h2>
-<section id="aml-fcc-fraud" class="level3">
-<h3 class="anchored" data-anchor-id="aml-fcc-fraud">AML / FCC / Fraud</h3>
-<p>Customer Segmentation, Customer Risk Rating, Alert Prioritization (TMS &amp; Name Screening), Transaction Behavioural Analytics, Suspicious Activity Detection, KYC/AML Compliance, Model Risk Management, Threshold Tuning</p>
-</section>
-<section id="machine-learning-for-amlfcc" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning-for-amlfcc">Machine Learning for AML/FCC</h3>
-<ul>
-<li><strong>Classification</strong>: Logistic Regression, Random Forest, XGBoost, CatBoost</li>
-<li><strong>Anomaly Detection</strong>: Isolation Forest, One-Class SVM</li>
-<li><strong>Clustering</strong>: K-Means, GMM, DBSCAN</li>
-<li>Graph Analytics, Feature Engineering, SHAP/LIME Explainability, ROC-AUC, PR-AUC</li>
-</ul>
-</section>
-<section id="programming-tools" class="level3">
-<h3 class="anchored" data-anchor-id="programming-tools">Programming &amp; Tools</h3>
-<p>Python, R, SQL, Pandas, scikit-learn, XGBoost, CatBoost, MLflow, Streamlit, Power BI, AWS (SageMaker, Bedrock), Plotly, FastAPI</p>
-</section>
-<section id="generative-ai" class="level3">
-<h3 class="anchored" data-anchor-id="generative-ai">Generative AI</h3>
-<p>RAG Architecture, Vector Embeddings, Prompt Engineering, Agentic AI</p>
+<section id="why-linear-regression-fails-here" class="level2">
+<h2 class="anchored" data-anchor-id="why-linear-regression-fails-here">Why Linear Regression Fails Here</h2>
+<p>If we try to carry over the linear regression logic unchanged, we would write:</p>
+<p><span class="math display">\[
+p = X\beta
+\]</span></p>
+<p>This looks innocent, but it immediately breaks something fundamental.</p>
+<p>The probability <span class="math inline">\(p\)</span> <strong>must</strong> lie between 0 and 1.<br>
+</p>
+<p>The linear predictor <span class="math inline">\(X\beta\)</span> has no such restriction, it can be negative, arbitrarily large, or anything in between.</p>
+<p>This mismatch is not a technical nuisance; it is a conceptual failure.</p>
+<p>A model that predicts probabilities outside <span class="math inline">\([0,1]\)</span> is not merely inaccurate, it is invalid.</p>
+<p>The issue is not with linearity itself.</p>
+<p>The issue is <em>where</em> we are trying to apply linearity.</p>
 <hr>
 </section>
+<section id="rethinking-the-target-from-probability-to-odds" class="level2">
+<h2 class="anchored" data-anchor-id="rethinking-the-target-from-probability-to-odds">Rethinking the Target: From Probability to Odds</h2>
+<p>Instead of forcing a linear structure onto the probability, we step back and change perspective.</p>
+<p>Rather than modeling (p) directly, we model the <strong>odds</strong>:</p>
+<p><span class="math display">\[
+\text{odds} = \frac{p}{1 - p}
+\]</span></p>
+<p>Odds answer a different question:</p>
+<p>“How many times more likely is success than failure?”</p>
+<p>Unlike probabilities, odds are not constrained to lie between 0 and 1. They range from:</p>
+<p><span class="math display">\[
+0 \quad \text{to} \quad +\infty
+\]</span></p>
+<p>This is progress. We have removed the upper bound. But odds are still restricted—they cannot be negative.</p>
+<p>So linearity still does not quite fit.</p>
+<hr>
 </section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<section id="m.sc.-in-statistics" class="level3">
-<h3 class="anchored" data-anchor-id="m.sc.-in-statistics">M.Sc. in Statistics</h3>
-<p><strong>Shivaji University, Kolhapur</strong> (2021 – 2023)<br>
-<strong>CGPA:</strong> 9.5 / 10</p>
-<p><strong>Key Coursework:</strong><br>
-Linear Algebra, Statistical Inference, Regression Analysis, Optimization Research, Data Mining, Time Series Analysis, Design of Experiments, Generalized Linear Models, Multivariate Analysis</p>
+<section id="the-key-insight-log-odds-restore-linearity" class="level2">
+<h2 class="anchored" data-anchor-id="the-key-insight-log-odds-restore-linearity">The Key Insight: Log-Odds Restore Linearity</h2>
+<p>To fully remove constraints, we apply one final transformation and take the logarithm of the odds:</p>
+<p><span class="math display">\[
+\log\left(\frac{p}{1 - p}\right)
+\]</span></p>
+<p>This quantity, known as the <strong>log-odds</strong> or <strong>logit</strong>, can take <strong>any real value</strong>.</p>
+<p>Now, and only now, do both sides of the equation live in the same mathematical space.</p>
+<p>This allows us to write:</p>
+<p><span class="math display">\[
+\log\left(\frac{p}{1 - p}\right) = X\beta
+\]</span></p>
+<p>This single equation defines logistic regression.</p>
+<p>Notice what has happened conceptually. We did not abandon the linear model.</p>
+<p>We preserved linearity by applying it to a transformed version of the response.</p>
+<p>Linearity survives—but on the log-odds scale.</p>
+<hr>
+</section>
+<section id="interpretation-what-the-coefficients-really-mean" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-what-the-coefficients-really-mean">Interpretation: What the Coefficients Really Mean</h2>
+<p>This formulation gives logistic regression its distinctive interpretation.</p>
+<p>A one-unit increase in a predictor <span class="math inline">\(X_j\)</span> increases the <strong>log-odds</strong> by (_j). Exponentiating both sides reveals the effect on odds:</p>
+<p><span class="math display">\[
+\text{odds} \;\rightarrow\; \text{odds} \times e^{\beta_j}
+\]</span></p>
+<p>So coefficients no longer represent additive changes in the response. They represent <strong>multiplicative changes in odds</strong>.</p>
+<p>This is why logistic regression coefficients are often reported as odds ratios rather than raw estimates.</p>
+<hr>
+</section>
+<section id="completing-the-journey-from-log-odds-back-to-probability" class="level2">
+<h2 class="anchored" data-anchor-id="completing-the-journey-from-log-odds-back-to-probability">Completing the Journey: From Log-Odds Back to Probability</h2>
+<p>Solving the log-odds equation for (p) gives:</p>
+<p><span class="math display">\[
+p = \frac{1}{1 + e^{-X\beta}}
+\]</span></p>
+<p>This is the sigmoid function. It smoothly maps any real-valued input into a valid probability between 0 and 1.</p>
+<p>At this point, the journey is complete.</p>
+<p>Linear regression and logistic regression are not separate ideas.</p>
+<p>Logistic regression is what linear regression becomes when probability theory forces us to respect its boundaries.</p>
+<p>The model remains linear in spirit, only the scale changes.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

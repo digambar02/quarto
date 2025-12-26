@@ -45,7 +45,7 @@ Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB T
 
 -   Combined statistical validation and business interpretability to finalize actionable and stable segments.
 
--    Built a production-ready Python segmentation pipeline for 35,000+ customers and 4.5M+ transactions, including automated data validation, preprocessing, clustering, prediction, database updates, and logging.
+-   Built a production-ready Python segmentation pipeline for 35,000+ customers and 4.5M+ transactions, including automated data validation, preprocessing, clustering, prediction, database updates, and logging.
 
 -   Developed interactive monitoring dashboards using Streamlit and Plotly to track segment behavior, migration, and drift.
 
@@ -55,9 +55,9 @@ Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB T
 
 -   Engineered features combining customer risk attributes and transaction-level risk indicators.
 
--    Optimized model performance using GridSearch and Optuna to balance recall–precision trade-offs.
+-   Optimized model performance using GridSearch and Optuna to balance recall–precision trade-offs.
 
--    Integrated SHAP-based explanations to provide transparent, alert-level rationale for compliance analysts.
+-   Integrated SHAP-based explanations to provide transparent, alert-level rationale for compliance analysts.
 
 **Model Validation & Governance (SR 11-7 Aligned)**
 

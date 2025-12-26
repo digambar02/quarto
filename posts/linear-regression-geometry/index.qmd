@@ -53,9 +53,12 @@ Here, the randomness in the data is fully described by a single quantity: the pr
 For a Bernoulli variable, the conditional expectation simplifies beautifully:
 
 $$
+\begin{aligned}
 \mathbb{E}(Y \mid X)
-= 1 \cdot P(Y=1 \mid X) + 0 \cdot P(Y=0 \mid X)
+&= 1 \cdot P(Y=1 \mid X) \\
+&\quad + 0 \cdot P(Y=0 \mid X)
 = p
+\end{aligned}
 $$
 
 At this point, the expectation is no longer an abstract mean, it *is the probability itself*.
@@ -100,7 +103,7 @@ $$
 0 \quad \text{to} \quad +\infty
 $$
 
-This is progress. We have removed the upper bound. But odds are still restricted—they cannot be negative.
+This is progress. We have removed the upper bound. But odds are still restricted, they cannot be negative.
 
 So linearity still does not quite fit.
 

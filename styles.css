@@ -39,7 +39,7 @@ li {
 body {
   font-size: clamp(20px, 1.1vw, 22px);
   line-height: 1.75;
-  text-align: justify;
+
   text-justify: inter-word;
 }
 
@@ -60,7 +60,7 @@ h3 {
 
 /* Navbar items */
 .navbar a {
-  font-size: clamp(0.95rem, 1vw, 1.05rem);
+  font-size: clamp(1rem, 1vw, 1.05rem);
 }
 
 /* Lists */
@@ -103,4 +103,3 @@ li {
 .navbar-brand {
   display: none;
 }
-

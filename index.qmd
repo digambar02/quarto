@@ -17,8 +17,6 @@ Experienced across multiple banking environments, including 4 months of onsite c
 
 Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB TRIM regulatory frameworks, with a proven ability to translate analytical outputs into regulator-ready documentation and business-interpretable insights.
 
-------------------------------------------------------------------------
-
 ## Experience
 
 ### Solytics Partners — Quantitative Consultant
@@ -71,8 +69,6 @@ Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB T
 
 -   Evaluated model interpretability using **feature importance, SHAP, LIME, PDPs, and counterfactual analysis**, and documented validation findings and monitoring recommendations.
 
-------------------------------------------------------------------------
-
 ## R&D Projects
 
 -   **Adverse Media Screening**\
@@ -89,8 +85,6 @@ Well-versed in model risk management (MRM), MMS, and SR 11-7, OCC 2011-12, ECB T
 
 -   **LLM-Based Investigation Application**\
     Developed an investigation assistant using **Gemini LLM function-calling** to dynamically extract customer, account, and transaction details
-
-------------------------------------------------------------------------
 
 ## Technical Skills
 
@@ -112,8 +106,6 @@ Python, R, SQL, Pandas, scikit-learn, XGBoost, CatBoost, MLflow, Streamlit, Powe
 ### Generative AI
 
 RAG Architecture, Vector Embeddings, Prompt Engineering, Agentic AI
-
-------------------------------------------------------------------------
 
 ## Education
 

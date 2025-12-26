@@ -1,12 +1,13 @@
 ---
-title: "Linear Regression: From Geometry to Python Implementation"
-date: 2025-01-15
-categories: [Statistics, Machine Learning]
+title: "Linear Regression: From Geometry to R Implementation"
+subtitle: "Implementation of logistic regression in R"
+author: "Digambar Dagade"
+date: today
 format:
   html: 
     toc: true
+        toc-location: body
     code-fold: true
-    toc-location: body
     code-overflow: wrap
 ---
 

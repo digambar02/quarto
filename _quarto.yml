@@ -18,6 +18,7 @@ format:
       - cosmo
     css: styles.css
     toc: false
+    image-loading: lazy
 
 editor: visual
 

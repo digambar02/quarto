@@ -50,7 +50,7 @@ $$
 Y \sim \text{Bernoulli}(p)
 $$
 
-Here, the randomness in the data is fully described by a single quantity: the probability $(p = P(Y = 1 \mid X))$.
+Here, the randomness in the data is fully described by a single quantity: the probability $p = P(Y = 1 \mid X)$.
 
 For a Bernoulli variable, the conditional expectation simplifies beautifully:
 
@@ -74,7 +74,7 @@ $$
 
 This looks innocent, but it immediately breaks something fundamental.
 
-The probability $p$ **must** lie between 0 and 1.\
+The probability $p$ **must** lie between 0 and 1.
 
 The linear predictor $X\beta$ has no such restriction, it can be negative, arbitrarily large, or anything in between.
 
@@ -82,9 +82,7 @@ This mismatch is not a technical nuisance; it is a conceptual failure.
 
 A model that predicts probabilities outside $[0,1]$ is not merely inaccurate, it is invalid.
 
-The issue is not with linearity itself.
-
-The issue is *where* we are trying to apply linearity.
+The issue is not with linearity itself. The issue is *where* we are trying to apply linearity.
 
 ------------------------------------------------------------------------
 
@@ -130,9 +128,7 @@ This allows us to write:
 
 $$
 \log\left(\frac{p}{1 - p}\right) = X\beta
-$$
-
-This single equation defines logistic regression.
+$$This single equation defines logistic regression.
 
 Notice what has happened conceptually. We did not abandon the linear model.
 
@@ -146,7 +142,7 @@ Linearity survives, but on the log-odds scale.
 
 This formulation gives logistic regression its distinctive interpretation.
 
-A one-unit increase in a predictor $X_j$ increases the **log-odds** by (\beta\_j). Exponentiating both sides reveals the effect on odds:
+A one-unit increase in a predictor $X_j$ increases the **log-odds** by $\beta_j$. Exponentiating both sides reveals the effect on odds:
 
 $$
 \text{odds} \;\rightarrow\; \text{odds} \times e^{\beta_j}

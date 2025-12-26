@@ -2,10 +2,12 @@
 title: "Digambar Dagade"
 subtitle: "AML / FCC Quantitative Consultant"
 toc: false
+page-layout: full
+page-class: home-page
 ---
 
-📍 **Pune, Maharashtra, India**\
-📞 +91-8329290277 \| ✉️ dagadedigambar\@gmail.com \| LinkedIn
+**Pune, Maharashtra, India**\
++91-8329290277 \| dagadedigambar\@gmail.com \| [LinkedIn](https://www.linkedin.com/in/digambar-dagade/)
 
 ------------------------------------------------------------------------
 

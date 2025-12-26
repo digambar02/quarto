@@ -1,0 +1,105 @@
+---
+title: "Linear Regression: From Geometry to Python Implementation"
+date: 2025-01-15
+categories: [Statistics, Machine Learning]
+format:
+  html: 
+    toc: true
+    code-fold: true
+    toc-location: body
+    code-overflow: wrap
+---
+
+![](images/linear-regression-in-r.png)
+
+Linear regression is often introduced as an estimation problem — coefficients, residuals, and error minimization.\
+But at its core, linear regression is **geometry**: projecting a response vector onto the space spanned by predictors.
+
+In this article, I’ll briefly explain the intuition and then implement a linear regression model in Python from a practical perspective.
+
+## The Model Setup
+
+We assume a linear relationship between predictors and response:
+
+$$
+y = X\beta + \varepsilon
+$$
+
+where\
+- ( X ) is the design matrix\
+- ( \beta ) is the coefficient vector\
+- ( \varepsilon ) is random noise
+
+The objective is to find ( \beta ) such that the squared distance between ( y ) and ( X\beta ) is minimized.
+
+## Closed-Form Solution
+
+The least squares estimator is:
+
+$$
+\begin{aligned}
+\hat{\beta}
+&= (X^T X)^{-1} X^T y
+\end{aligned}
+$$
+
+Geometrically, this finds the **orthogonal projection** of ( y ) onto the column space of ( X ).
+
+## R Implementation (from Scratch)
+
+We start by generating synthetic data.
+
+```{r}
+# -----------------------------
+# 1. Generate synthetic data
+# -----------------------------
+set.seed(42)
+
+n <- 100
+X <- rnorm(n)
+beta_true <- 3
+epsilon <- rnorm(n, sd = 1)
+
+y <- beta_true * X + epsilon
+
+data <- data.frame(X = X, y = y)
+
+# -----------------------------
+# 2. Fit linear regression model
+# -----------------------------
+model <- lm(y ~ X, data = data)
+
+# Model summary
+summary(model)
+
+# -----------------------------
+# 3. Extract coefficients
+# -----------------------------
+coef(model)
+
+# Intercept and slope explicitly
+intercept <- coef(model)[1]
+slope <- coef(model)[2]
+
+# -----------------------------
+# 4. Predictions & residuals
+# -----------------------------
+data$y_pred <- predict(model, newdata = data)
+data$residuals <- resid(model)
+
+head(data)
+
+# -----------------------------
+# 5. Visualization
+# -----------------------------
+plot(
+  data$X, data$y,
+  pch = 16,
+  col = "steelblue",
+  xlab = "X",
+  ylab = "y",
+  main = "Linear Regression Fit"
+)
+
+abline(model, col = "red", lwd = 2)
+```

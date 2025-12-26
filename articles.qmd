@@ -11,3 +11,7 @@ Below are selected articles where I write about **statistics, machine learning, 
 ### [The Journey from Linear Regression to Logistic Regression](posts/linear-regression-geometry/)
 
 *Understanding regression as a projection problem in linear algebra.*
+
+### [The Linear Regression Implementation in R](posts/linear-regression-r)
+
+*Understanding regression as a projection problem in linear algebra.*

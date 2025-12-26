@@ -5,7 +5,8 @@ author: "Digambar Dagade"
 date: today
 format:
   html:
-    toc: false
+    toc: true
+    toc-location: body
 ---
 
 ![](cover.png)

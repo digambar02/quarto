@@ -107,10 +107,6 @@ window.Quarto = {
     <a class="nav-link" href="../../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -189,9 +185,12 @@ Y \sim \text{Bernoulli}(p)
 <p>Here, the randomness in the data is fully described by a single quantity: the probability <span class="math inline">\(p = P(Y = 1 \mid X)\)</span>.</p>
 <p>For a Bernoulli variable, the conditional expectation simplifies beautifully:</p>
 <p><span class="math display">\[
+\begin{aligned}
 \mathbb{E}(Y \mid X)
-= 1 \cdot P(Y=1 \mid X) + 0 \cdot P(Y=0 \mid X)
+&amp;= 1 \cdot P(Y=1 \mid X) \\
+&amp;\quad + 0 \cdot P(Y=0 \mid X)
 = p
+\end{aligned}
 \]</span></p>
 <p>At this point, the expectation is no longer an abstract mean, it <em>is the probability itself</em>.</p>
 </section>
@@ -221,7 +220,7 @@ p = X\beta
 <p><span class="math display">\[
 0 \quad \text{to} \quad +\infty
 \]</span></p>
-<p>This is progress. We have removed the upper bound. But odds are still restricted—they cannot be negative.</p>
+<p>This is progress. We have removed the upper bound. But odds are still restricted, they cannot be negative.</p>
 <p>So linearity still does not quite fit.</p>
 </section>
 <section id="the-key-insight-log-odds-restore-linearity" class="level2">

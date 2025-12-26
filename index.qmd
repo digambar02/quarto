@@ -2,7 +2,9 @@
 title: "Digambar Dagade"
 subtitle: "AML / FCC Quantitative Consultant"
 toc: false
-page-class: home-page
+format:
+  html:
+    page-class: home-page
 ---
 
 **Pune, Maharashtra, India**\

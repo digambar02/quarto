@@ -6,7 +6,7 @@ date: today
 format:
   html: 
     toc: true
-        toc-location: body
+    toc-location: body
     code-fold: true
     code-overflow: wrap
 ---

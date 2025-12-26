@@ -104,20 +104,19 @@ li {
 }
 
 /* ===============================
-   Center title on home page only
+   Center title & subtitle (Home)
    =============================== */
 
-.home-page .title-block-header {
+.home-page #title-block-header {
   text-align: center;
   margin-top: 3rem;
 }
 
-.home-page .title-block-header h1 {
-  margin-bottom: 0.5rem;
+.home-page #title-block-header .title {
+  margin-bottom: 0.4rem;
 }
 
-.home-page .title-block-header p.subtitle {
-  font-size: 1.2rem;
+.home-page #title-block-header .subtitle {
+  font-size: 1.25rem;
   color: #374151;
 }
-

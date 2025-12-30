@@ -11,6 +11,8 @@ website:
         text: Resume
       - href: articles.qmd
         text: Articles
+  page-footer: "Copyright 2026, Digambar Dagade"
+  
 
 format:
   html:
